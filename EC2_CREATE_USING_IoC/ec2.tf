@@ -11,7 +11,7 @@ provider "aws" {
 resource aws_key_pair my_key_pair {
 
 key_name="terra-automate-key-josh"
-public_key=file("terra-automate-key.pub")
+public_key=file("nasir.pub")
 } 
 
 # VPC Default
@@ -62,10 +62,11 @@ resource aws_vpc_security_group_egress_rule allow_all_traffic {
 
 resource aws_instance my_instance {
 
-	count = 3
-	ami = "ami-0d76b909de1a0595d" # OS AMI ID
+	count = 2
+	ami = "ami-0332d564d76dbd8d6" # OS AMI ID
 
-	instance_type = "t3.micro" # Instance Type
+	instance_type = "t2.micro" # Instance Type
+   subnet_id     = "subnet-005d4953d9734f867"
 
 	key_name = aws_key_pair.my_key_pair.key_name	# Key pair
 
@@ -73,11 +74,11 @@ resource aws_instance my_instance {
 	
 	# root storage (EBS)
 	root_block_device {
-		volume_size = 15
+		volume_size = 10
 		volume_type = "gp3"
 	}
 
 	tags = {
-    Name = "terra-automate-server"
+    Name = "nasir_terra-automate-server"
   }
 }
