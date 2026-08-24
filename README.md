@@ -2,10 +2,12 @@
 
 This repository is your one-stop solution for learning Terraform as a DevOps Engineer. It covers basics through advanced features with real AWS infrastructure.
 
+**Author:** Nasir Mehmood
+
 ## Prerequisites
 
 - [Terraform](https://developer.hashicorp.com/terraform/install) >= 1.5.0 (recommended: 1.14.x)
-- [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) configured with valid credentials
+- AWS CLI v2 configured with valid credentials
 - An AWS account (Free Tier works for most examples)
 
 ## Versions Used
@@ -16,6 +18,7 @@ This repository is your one-stop solution for learning Terraform as a DevOps Eng
 | AWS Provider | ~> 6.0 |
 | EKS Module | ~> 21.0 |
 | VPC Module | ~> 5.0 |
+| AWS CLI | v2 |
 
 ## Repository Structure
 
@@ -85,6 +88,35 @@ terraform-for-devops/
 ## Terraform Commands — Complete Guide
 
 ### 1. Setup & Initialization
+
+**Install AWS CLI v2 (Linux/Ubuntu)**
+```sh
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+sudo apt install -y unzip
+unzip awscliv2.zip
+sudo ./aws/install
+
+# Verify installation
+aws --version
+```
+
+**Install AWS CLI v2 (macOS)**
+```sh
+curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+sudo installer -pkg AWSCLIV2.pkg -target /
+
+# Verify installation
+aws --version
+```
+
+**Configure AWS CLI**
+```sh
+aws configure
+# Enter Access Key ID, Secret Access Key, region, and output format
+
+# Verify credentials are working
+aws sts get-caller-identity
+```
 
 **Install Terraform (Linux/Ubuntu)**
 ```sh
@@ -165,16 +197,3 @@ terraform test                    # Run all .tftest.hcl files
 export TF_LOG=DEBUG               # Enable debug logs
 terraform apply 2>&1 | tee debug.log
 ```
-
----
-
-## Projects
-
-### Terraform with Ansible
-[Get it here](https://github.com/LondheShubham153/terraform-ansible-multi-env)
-
-### Terraform with GitHub
-[Get it here](https://github.com/Amitabh-DevOps/online_shop/tree/github-action/.github/workflows)
-
-### Terraform to EKS
-[Get it here](https://github.com/DevMadhup/Springboot-BankApp/tree/DevOps/Terraform/EKS-Deployment)
