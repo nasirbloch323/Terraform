@@ -1,8 +1,8 @@
-# Region
+# Regions
 
 provider "aws" {
 
-	region="us-west-2"
+	region="us-east-1"
 
 }
 
@@ -73,7 +73,7 @@ resource aws_instance my_instance {
 	
 	# root storage (EBS)
 	root_block_device {
-		volume_size = 10
+		volume_size = 15
 		volume_type = "gp3"
 	}
 
