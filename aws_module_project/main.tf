@@ -1,4 +1,4 @@
-# Use a data source instead of hardcoding AMI IDs.
+# Use a data source instead of hardcoding AMI IDs.  shumbam londhi 
 # AMI IDs differ by region and change over time — a data source
 # always fetches the latest available image automatically.
 data "aws_ami" "ubuntu" {
