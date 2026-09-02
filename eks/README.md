@@ -120,10 +120,25 @@ Costs vary by region and SPOT pricing. Destroy when not in use to avoid charges.
 terraform destroy
 ```
 
-## Module Versions
+# EKS Cluster with Terraform
 
-| Module | Version | Registry |
-|---|---|---|
-| terraform-aws-modules/eks/aws | ~> 21.0 | [Terraform Registry](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest) |
-| terraform-aws-modules/vpc/aws | ~> 6.0 | [Terraform Registry](https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest) |
-| hashicorp/aws provider | ~> 6.0 | [Terraform Registry](https://registry.terraform.io/providers/hashicorp/aws/latest) |
+Provision an Amazon EKS cluster using Terraform.
+
+## Prerequisites
+
+1. Install Terraform
+2. Configure AWS CLI (`aws configure`)
+
+## Usage
+
+```bash
+terraform init
+terraform plan
+terraform apply
+```
+
+## Cleanup
+
+```bash
+terraform destroy
+```
