@@ -4,7 +4,7 @@ output "key_name" {
 }
 
 # EC2 Instances (multiple ho sakti hain kyunke count use hua hai)
-output "public_ip" {
+output "public_ipS" {
   value = aws_instance.example[*].public_ip
 }
 
