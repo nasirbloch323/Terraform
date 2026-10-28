@@ -1,5 +1,5 @@
 variable "ssh_public_key_path" {
-  description = "Path to your SSH public key"
+  description = "Path to your SSH public keys"
   type        = string
   default     =("nasir.pub")
 }
