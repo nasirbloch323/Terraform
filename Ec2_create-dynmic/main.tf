@@ -1,4 +1,4 @@
-# Get available subnets in default VPC
+# Get available subnets in default VPCa
 data "aws_subnets" "default" {
   filter {
     name   = "vpc-id"
