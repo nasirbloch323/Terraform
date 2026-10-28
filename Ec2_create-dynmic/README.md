@@ -1,4 +1,4 @@
-# Terraform AWS EC2 Provisioning
+# Terraform AWS EC2 Provisioning / CypherNex DevOps Internship - Week 2 Progress Report
 
 Terraform configuration to provision AWS EC2 instances with a key pair and security group inside the default VPC.
 
