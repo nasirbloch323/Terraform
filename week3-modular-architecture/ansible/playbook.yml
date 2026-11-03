@@ -1,0 +1,43 @@
+---
+- name: Configure the Terraform-provisioned Ubuntu EC2 instance
+  hosts: web
+  become: true
+  gather_facts: true
+
+  tasks:
+    - name: Wait for SSH to become available
+      ansible.builtin.wait_for_connection:
+        delay: 10
+        timeout: 300
+
+    - name: Refresh apt package cache
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Install and update Nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: present
+
+    - name: Ensure Nginx is enabled and running
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+
+    - name: Publish a simple deployment landing page
+      ansible.builtin.copy:
+        dest: /var/www/html/index.html
+        owner: www-data
+        group: www-data
+        mode: "0644"
+        content: |
+          <!doctype html>
+          <html>
+            <head><title>Week 3 Terraform + Ansible</title></head>
+            <body>
+              <h1>Deployed with Terraform and configured with Ansible</h1>
+              <p>Infrastructure by NASIR MEHMOOD</p>
+            </body>
+          </html>
